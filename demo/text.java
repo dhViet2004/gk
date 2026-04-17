@@ -1,39 +1,39 @@
-1. Chọn Design Pattern phù hợp và Giải thích (0.5 điểm)
-Lựa chọn: Strategy Pattern (Mẫu chiến lược).
+// 1. Chọn Design Pattern phù hợp và Giải thích (0.5 điểm)
+// Lựa chọn: Strategy Pattern (Mẫu chiến lược).
 
-Lý do lựa chọn:
+// Lý do lựa chọn:
 
-Đa thuật toán: Bài toán yêu cầu hệ thống xử lý nhiều cách gợi ý khác nhau (Sở thích, Lịch sử, Xu hướng) cho cùng một mục đích. Strategy cho phép đóng gói các thuật toán này thành các lớp riêng biệt.
+// Đa thuật toán: Bài toán yêu cầu hệ thống xử lý nhiều cách gợi ý khác nhau (Sở thích, Lịch sử, Xu hướng) cho cùng một mục đích. Strategy cho phép đóng gói các thuật toán này thành các lớp riêng biệt.
 
-Nguyên lý Open/Closed: Khi cần thêm cách gợi ý mới trong tương lai, ta chỉ cần tạo thêm một lớp "Chiến lược" mới thực thi interface mà không cần sửa đổi mã nguồn hiện tại của lớp xử lý chính.
+// Nguyên lý Open/Closed: Khi cần thêm cách gợi ý mới trong tương lai, ta chỉ cần tạo thêm một lớp "Chiến lược" mới thực thi interface mà không cần sửa đổi mã nguồn hiện tại của lớp xử lý chính.
 
-Linh hoạt tại Runtime: Cho phép hệ thống hoặc người dùng thay đổi "chiến thuật" gợi ý ngay khi chương trình đang chạy tùy thuộc vào ngữ cảnh hoặc dữ liệu sinh viên.
+// Linh hoạt tại Runtime: Cho phép hệ thống hoặc người dùng thay đổi "chiến thuật" gợi ý ngay khi chương trình đang chạy tùy thuộc vào ngữ cảnh hoặc dữ liệu sinh viên.
 
-@startuml
-interface IRecommendationStrategy {
-    + recommend(studentID: String): List<Event>
-}
+// @startuml
+// interface IRecommendationStrategy {
+//     + recommend(studentID: String): List<Event>
+// }
 
-class InterestBasedStrategy implements IRecommendationStrategy {
-    + recommend(studentID: String): List<Event>
-}
+// class InterestBasedStrategy implements IRecommendationStrategy {
+//     + recommend(studentID: String): List<Event>
+// }
 
-class HistoryBasedStrategy implements IRecommendationStrategy {
-    + recommend(studentID: String): List<Event>
-}
+// class HistoryBasedStrategy implements IRecommendationStrategy {
+//     + recommend(studentID: String): List<Event>
+// }
 
-class TrendingStrategy implements IRecommendationStrategy {
-    + recommend(studentID: String): List<Event>
-}
+// class TrendingStrategy implements IRecommendationStrategy {
+//     + recommend(studentID: String): List<Event>
+// }
 
-class RecommendationContext {
-    - strategy: IRecommendationStrategy
-    + setStrategy(strategy: IRecommendationStrategy): void
-    + getRecommendations(studentID: String): List<Event>
-}
+// class RecommendationContext {
+//     - strategy: IRecommendationStrategy
+//     + setStrategy(strategy: IRecommendationStrategy): void
+//     + getRecommendations(studentID: String): List<Event>
+// }
 
-RecommendationContext o-- IRecommendationStrategy : uses
-@enduml
+// RecommendationContext o-- IRecommendationStrategy : uses
+// @enduml
 
 
 import java.util.*;
